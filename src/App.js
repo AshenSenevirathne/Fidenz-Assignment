@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {createTheme , MuiThemeProvider, responsiveFontSizes} from "@material-ui/core/styles";
+import DashboardContainer from "./Components/Dashboard/DashboardContainer";
+import {deepPurple} from "@material-ui/core/colors";
+
+
+const Theme = responsiveFontSizes(createTheme ({
+    palette: {
+        primary: deepPurple,
+    }, typography: {
+        button: {
+            textTransform: 'none'
+        }
+    }
+}));
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <MuiThemeProvider theme={Theme}>
+            <DashboardContainer/>
+        </MuiThemeProvider>
+    );
 }
 
 export default App;
